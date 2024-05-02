@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import BannerMain from "@/assets/bannerMain.png";
+
 import { VscLibrary } from "react-icons/vsc";
 import { FaPlus, FaArrowRight } from "react-icons/fa6";
 import { GoHomeFill, GoSearch } from "react-icons/go";
@@ -7,6 +9,9 @@ import { GoHomeFill, GoSearch } from "react-icons/go";
 import { LibraryAside } from "@/components/LibraryAside";
 import { MenuCategories } from "@/components/MenuCategories";
 import { MainMenu } from "@/components/MainMenu";
+import { MainCards } from "@/components/MainCards";
+import { GalleryCards } from "@/components/GalleryCards";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -52,32 +57,53 @@ export default function Home() {
             <div>
               <ul>
                 <li>
-                  <LibraryAside title="Daily Mix 1" name="Fall Out Boy" />
-                </li>
-                <li>
-                  <LibraryAside title="Daily Mix 2" name="Charlie Brown Jr" />
-                </li>
-                <li>
-                  <LibraryAside title="Daily Mix 3" name="Green Day" />
-                </li>
-                <li>
-                  <LibraryAside title="Daily Mix 4" name="Yame" />
-                </li>
-                <li>
-                  <LibraryAside title="Daily Mix 5" name="Hungria" />
-                </li>
-                <li>
-                  <LibraryAside title="Daily Mix 6" name="Wax" />
+                  <LibraryAside />
                 </li>
               </ul>
             </div>
           </aside>
         </div>
         <main className="flex-1 mt-3 mb-3 mr-3 p-5 bg-zinc-900 rounded-md">
-          <MainMenu />
+          <div>
+            <MainMenu />
+            <Image
+              src={BannerMain}
+              alt="banner main"
+              className="mt-3 rounded-sm"
+            />
+          </div>
+          <div>
+            <ul className="flex mt-5 gap-3">
+              <li className="cursor-pointer">
+                <span className="bg-zinc-100 text-zinc-800 rounded-full pl-3 pr-3 p-1 font-semibold">
+                  All
+                </span>
+              </li>
+              <li className="cursor-pointer">
+                <span className="text-zinc-100 bg-zinc-800 rounded-full pl-3 pr-3 p-1 font-semibold">
+                  Music
+                </span>
+              </li>
+              <li className="cursor-pointer">
+                <span className="text-zinc-100 bg-zinc-800 rounded-full pl-3 pr-3 p-1 font-semibold">
+                  Podcasts
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div className="mt-5">
+            <div>
+              <MainCards />
+            </div>
+          </div>
+          <div>
+            <GalleryCards />
+          </div>
         </main>
       </div>
-      <footer className="h-24 p-5"></footer>
+      <footer className="h-24 p-4">
+        <Footer />
+      </footer>
     </div>
   );
 }
